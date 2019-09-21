@@ -90,17 +90,18 @@ public class ross_p3 {
 		int lowRating = pointsArry[0]; // set variable lowRating to first index in array
 		int worst = 0; // declare variable that will be used to represent index number in an array
 		int topRating = pointsArry[0]; // set variable topRating to first index in array
-		int best = 0;
+		int best = 0; // declare variable that will be used to represent index number in an array
 
+		//start for loop to go through the total points of each topic to get lowest and top ratings
 		for (i = 0; i < pointsArry.length; i++) {
 
 			if (pointsArry[i] < lowRating) {
-				lowRating = pointsArry[i];
-				worst = i;
+				lowRating = pointsArry[i]; //set variable to the point value stored in index
+				worst = i; //sets variable to index position to reference later for index of lowest rating
 			}
 			if (pointsArry[i] > topRating) {
-				topRating = pointsArry[i];
-				best = i;
+				topRating = pointsArry[i]; //set variable to the point value stored in index
+				best = i; //sets variable to index position to reference later for index of lowest rating
 			}
 		}
 		System.out.println("");

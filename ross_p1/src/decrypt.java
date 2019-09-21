@@ -4,17 +4,6 @@ public class decrypt {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		/*
-		 * A company that wants to send data over the Internet has asked you to write a
-		 * program that will encrypt it so that it may be transmitted more securely. All
-		 * the data is transmitted as four-digit integers. Your application should read
-		 * a four-digit integer entered by the user and encrypt it as follows: Replace
-		 * each digit with the result of adding 7 to the digit and getting the remainder
-		 * after dividing the new value by 10. Then swap the first digit with the third,
-		 * and swap the second digit with the fourth. Then print the encrypted integer.
-		 * Write a separate application that inputs an encrypted four-digit integer and
-		 * decrypts it (by reversing the encryption scheme) to form the original number.
-		 */
 
 		// ask user for 4 digit integer
 		Scanner in = new Scanner(System.in);
@@ -44,34 +33,46 @@ public class decrypt {
 
 		int temp2 = userNum4; // declare int temp2 to create a temporary spot for value in userNum4 to be held
 		userNum4 = userNum2; // change 4th digit to be the same as userNum2
-		userNum2 = temp2; // change 2nd digit to be the same as the value held in temp2 which was originally userNum4
+		userNum2 = temp2; // change 2nd digit to be the same as the value held in temp2 which was
+							// originally userNum4
 
 		// change all your digits back to their original form
 		if (userNum1 > 6) {
-			userNum1 = (userNum1 - 7) % 10;
+			userNum1 = Math.abs(userNum1 - 7) % 10; // if the number is greater than 6 it will reverse the encryption
+													// method using almost identical formula
 		} else {
-			userNum1 = (userNum1 + 3) % 10;
+			userNum1 = (userNum1 + 3) % 10; // else we must change the formula to have the number return to its original
+											// state
 		}
 
 		if (userNum2 > 6) {
-			userNum2 = (userNum2 - 7) % 10;
+			userNum2 = (userNum2 - 7) % 10;// if the number is greater than 6 it will reverse the encryption method
+											// using almost identical formula
 		} else {
-			userNum2 = (userNum2 + 3) % 10;
+			userNum2 = (userNum2 + 3) % 10; // else we must change the formula to have the number return to its original
+											// state
 		}
 
 		if (userNum3 > 6) {
-			userNum3 = (userNum3 - 7) % 10;
+			userNum3 = (userNum3 - 7) % 10;// if the number is greater than 6 it will reverse the encryption method
+											// using almost identical formula
 		} else {
-			userNum3 = (userNum3 + 3) % 10;
+			userNum3 = (userNum3 + 3) % 10; // else we must change the formula to have the number return to its original
+											// state
 		}
 
 		if (userNum4 > 6) {
-			userNum4 = (userNum4 - 7) % 10;
+			userNum4 = (userNum4 - 7) % 10;// if the number is greater than 6 it will reverse the encryption method
+											// using almost identical formula
 		} else {
-			userNum4 = (userNum4 + 3) % 10;
+			userNum4 = (userNum4 + 3) % 10; // else we must change the formula to have the number return to its original
+											// state
 		}
 
-		System.out.println("Your original number is: " + userNum1 + userNum2 + userNum3 + userNum4);
+		System.out.println("Your original number is: " + userNum1 + userNum2 + userNum3 + userNum4); // print out the
+																										// user's
+																										// original
+																										// number
 
 	}
 
