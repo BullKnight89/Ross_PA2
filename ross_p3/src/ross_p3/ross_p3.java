@@ -73,11 +73,10 @@ public class ross_p3 {
 			System.out.printf("%-10s", topicsArry[i]); // print all the topics in the array
 
 			for (j = 0; j <= 9; j++) { // set for loop to cycle through 10 ratings for each topic
-				System.out.printf("%4s", responArry[i][j]); // print each rating under the corresponding index in the
-															// array
+				System.out.printf("%4s", responArry[i][j]); // print each rating under the corresponding index in the array
 				totalPoints = totalPoints + ((j+1) * responArry[i][j]); // calculate the total points for each rating
-																			// (j+1) adds 1 to the index to match the
-																			// appropriate index of each rating
+																		// (j+1) adds 1 to the index to match the
+																		// appropriate index of each rating
 			}
 			double average = (double) totalPoints / numUsers; // get the average rating of each topic
 			System.out.printf("  %.2f\n", average); // print the average in the very right column
@@ -87,10 +86,9 @@ public class ross_p3 {
 
 		}
 		// Print which topic received highest and lowest ratings and their point totals
-		int lowRating = pointsArry[0]; // set variable lowRating to first index in array
-		int worst = 0; // declare variable that will be used to represent index number in an array
-		int topRating = pointsArry[0]; // set variable topRating to first index in array
-		int best = 0; // declare variable that will be used to represent index number in an array
+		
+		int lowRating = pointsArry[0], topRating = pointsArry[0]; // set variable lowRating and highRating to first index in array
+		int worst = 0, best = 0; // declare variables that will be used to represent index numbers in arrays
 
 		//start for loop to go through the total points of each topic to get lowest and top ratings
 		for (i = 0; i < pointsArry.length; i++) {
