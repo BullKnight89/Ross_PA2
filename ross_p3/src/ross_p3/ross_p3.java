@@ -15,7 +15,7 @@ public class ross_p3 {
 		int responArry[][] = new int[5][10]; // declare an array to store user responses
 		int pointsArry[] = new int[5]; // declare an array to store the total points for each topic from all the
 										// surveys
-		int numUsers = 0; // declare variable to count the number of users who took survey to calculate
+		int surveys = 0; // declare variable to count the number of users who took survey to calculate
 							// avg scores
 		int topicRating = 0; // declare variable for rating each topic
 		int trueColumn = 0; // declare variable to put rating under true
@@ -24,29 +24,27 @@ public class ross_p3 {
 		int i, j; // declare counter variable to count topics
 
 		// create loop to continue running survey if a new user wants to take the survey
-		while (newSurvey != 'n') { // if not 'n', then restart the steps
+		while (newSurvey != 'n') { 
 
-			numUsers++; // counter to add 1 to the total number of users taking the survey
+			surveys++; // counter for the total number of surveys
 
 			// prompt user to rate the 5 topics on a scale of 1 to 10
 			System.out.println("Please rank the following topics from 1-10 based on how important they are to you.\n"
 					+ "1 is very low importance and 10 is high importance.");
 			System.out.println("");
 
-			for (i = 0; i < topicsArry.length; i++) { // display each topic and store each response in a 2D array
+			for (i = 0; i < topicsArry.length; i++) { 
 
 				System.out.println("Please rate " + topicsArry[i] + ":"); // prompt user to input rating for specific
 																			// topic
 				topicRating = in.nextInt(); // have user input their rating
 				trueColumn = topicRating - 1; // variable will change user's input rating by minus 1 to be stored in
-												// appropriate
-												// index location. If user input is "8" it will be stored in index 7
-												// which is where
-												// the column of ratings for "8" is located
+												// appropriate index location. 
 
 				if (topicRating > 0) { // confirm user entered correct rating
-					responArry[i][trueColumn]++; // ratings will be stored in response 2D array and starts a counter
-				} else { // if rating is invalid, let them know and have them start over
+					responArry[i][trueColumn]++; // ratings are stored and counted
+				} 
+				else { // if rating is invalid, let them know and have them start over
 					System.out.println("You've entered an incorrect number.");
 					System.out.println("Please start the survey over using the rating scale of 1 - 10.\n");
 				}
@@ -59,14 +57,14 @@ public class ross_p3 {
 
 		}
 
-		// if no, then proceed to display results with the topics on the left side and
-		// ratings scale on top
-		// each topic row should show the number of a certain rating received by user
-		// show the average rating to the very right
+		// if no, then proceed to display topics and their results
+		// create your top row in your frequency distribution table
 		System.out.printf("%-10s%4s%4s%4s%4s%4s%4s%4s%4s%4s%4s%6s\n", "Topics", "1", "2", "3", "4", "5", "6", "7", "8",
-				"9", "10", "Avg."); // create your top row in your frequency distribution table
+				"9", "10", "Avg."); 
+		
+		// create a line underneath the headings
 		System.out.printf("%-10s%4s%4s%4s%4s%4s%4s%4s%4s%4s%4s%6s\n", "------", "-", "-", "-", "-", "-", "-", "-", "-",
-				"-", "--", "----"); // create a line underneath the headings
+				"-", "--", "----"); 
 
 		for (i = 0; i < topicsArry.length; i++) {
 
@@ -75,11 +73,11 @@ public class ross_p3 {
 			for (j = 0; j <= 9; j++) { // set for loop to cycle through 10 ratings for each topic
 				System.out.printf("%4s", responArry[i][j]); // print each rating under the corresponding index in the array
 				totalPoints = totalPoints + ((j+1) * responArry[i][j]); // calculate the total points for each rating
-																		// (j+1) adds 1 to the index to match the
-																		// appropriate index of each rating
+
 			}
-			double average = (double) totalPoints / numUsers; // get the average rating of each topic
-			System.out.printf("  %.2f\n", average); // print the average in the very right column
+			double average = (double) totalPoints / surveys; // get the average rating of each topic and then print them
+			System.out.printf("  %.2f\n", average); 
+			
 			pointsArry[i] = totalPoints; // create a new array to store all of the points totaled from each topic
 			average = 0; // reset the average points to zero for the next topic
 			totalPoints = 0; // reset the total points to zero for the next topic
@@ -102,6 +100,7 @@ public class ross_p3 {
 				best = i; //sets variable to index position to reference later for index of lowest rating
 			}
 		}
+		//print out lowest and top ratings
 		System.out.println("");
 		System.out.println(topicsArry[best] + " received the best rating with " + topRating + " points.");
 		System.out.println(topicsArry[worst] + " received the lowest rating with " + lowRating + " points.");
