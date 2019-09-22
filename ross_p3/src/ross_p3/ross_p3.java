@@ -11,7 +11,13 @@ public class ross_p3 {
 		Scanner in = new Scanner(System.in);
 		// first create topics to rate and store them in 1D array
 
-		String topicsArry[] = { "Politics", "Climate", "Crafting", "Religion", "Tacos" }; // declare array of topics to rate
+		String topicsArry[] = new String [5]; // declare array of topics to rate
+		topicsArry[0] = "Politics";
+		topicsArry[1] = "Religion";
+		topicsArry[2] = "Climate";
+		topicsArry[3] = "Finance";
+		topicsArry[4] = "Tacos";
+		
 		int responArry[][] = new int[5][10]; // declare an array to store user responses
 		int pointsArry[] = new int[5]; // declare an array to store the total points for each topic from all the
 										// surveys
@@ -65,7 +71,7 @@ public class ross_p3 {
 		// create a line underneath the headings
 		System.out.printf("%-10s%4s%4s%4s%4s%4s%4s%4s%4s%4s%4s%6s\n", "------", "-", "-", "-", "-", "-", "-", "-", "-",
 				"-", "--", "----"); 
-
+		 
 		for (i = 0; i < topicsArry.length; i++) {
 
 			System.out.printf("%-10s", topicsArry[i]); // print all the topics in the array
@@ -83,7 +89,6 @@ public class ross_p3 {
 			totalPoints = 0; // reset the total points to zero for the next topic
 
 		}
-		// Print which topic received highest and lowest ratings and their point totals
 		
 		int lowRating = pointsArry[0], topRating = pointsArry[0]; // set variable lowRating and highRating to first index in array
 		int worst = 0, best = 0; // declare variables that will be used to represent index numbers in arrays
